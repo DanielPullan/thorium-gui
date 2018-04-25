@@ -1,3 +1,5 @@
+; Create the GUI
+; Gui, Add, <element>, <position (x100 y100) size (w100 h100) buttonlabel>, <buttontext>
 Gui, Add, Text, x5 y0 w230 h15, Presentation Options
 Gui, Add, Button, x5 y20 w100 h30 gsub1, Convert
 Gui, Add, Button, x115 y20 w100 h30 gsub2, Push Out
@@ -16,12 +18,15 @@ Gui, Add, Text, x5 y210 w200 h15, 3264.uk/thorium-gui to find information
 Gui, Show
 return
 
-Password = thingo
+; Move this stuff to a password file.
+Server = bingo
+Password = bango
 
+; gsub1 button = sub1 action
 sub1:
 {
 	try {
-		Run, "puttydirectoryhere" -ssh user@server -pw Password -m 'pathtocommandhere.txt'
+		Run, "puttydirectoryhere" -ssh Server -pw Password -m 'pathtocommandhere.txt'
 		} catch e {
 			Msgbox, Error Code: 4 "Missing PuTTY"
 		}
@@ -31,7 +36,7 @@ return
 sub2:
 {
 	try {
-		Run, "puttydirectoryhere" -ssh user@server -pw Password -m 'pathtocommandhere.txt'
+		Run, "puttydirectoryhere" -ssh Server -pw Password -m 'pathtocommandhere.txt'
 	} catch e {
 		Msgbox, Error Code: 4 "Missing PuTTY"
 	}
@@ -41,7 +46,7 @@ return
 sub3:
 {
 	try {
-		Run, "puttydirectoryhere" -ssh user@server -pw Password -m 'pathtocommandhere.txt'
+		Run, "puttydirectoryhere" -ssh Server -pw Password -m 'pathtocommandhere.txt'
 	} catch e {
 		Msgbox, Error Code: 4 "Missing PuTTY"
 	}
@@ -51,7 +56,7 @@ return
 sub4:
 {
 	try {
-		Run, "puttydirectoryhere" -ssh user@server -pw Password -m 'pathtocommandhere.txt'
+		Run, "puttydirectoryhere" -ssh Server -pw Password -m 'pathtocommandhere.txt'
 	} catch e {
 		Msgbox, Error Code: 4 "Missing PuTTY"
 	}
@@ -61,7 +66,7 @@ return
 sub5:
 {
 	try {
-		Run, "puttydirectoryhere" -ssh user@server -pw Password -m 'pathtocommandhere.txt'
+		Run, "puttydirectoryhere" -ssh Server -pw Password -m 'pathtocommandhere.txt'
 	} catch e {
 		Msgbox, Error Code: 4 "Missing PuTTY"
 	}
@@ -71,19 +76,21 @@ return
 sub6:
 {
 	try {
-		Run, "puttydirectoryhere" -ssh user@server -pw Password -m 'pathtocommandhere.txt'
+		Run, "puttydirectoryhere" -ssh Server -pw Password -m 'pathtocommandhere.txt'
 	} catch e {
 		Msgbox, Error Code: 4 "Missing PuTTY"
 	}
 }
 return
 
+; big blue button - the refresh script button
 sub10:
 {
 	Reload
 }
 return
 
+; Fin
 guiclose:
 exit:
 {
